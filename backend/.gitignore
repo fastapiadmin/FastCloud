@@ -1,8 +1,0 @@
-.venv
-.vscode
-.idea
-.chat
-.DS_Store
-__pycache__
-
-app/alembic/versions/*

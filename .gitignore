@@ -4,13 +4,3 @@
 .chat
 .DS_Store
 __pycache__
-
-backend/logs
-backend/venv
-backend/__pycache__
-backend/sqlite.db
-
-frontend/build
-frontend/node_modules
-frontend/__pycache__
-frontend/uni_modules

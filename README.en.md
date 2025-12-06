@@ -51,35 +51,12 @@ FastAPI-Vue3-App is a full-stack open-source project aimed at helping developers
 ### Directory Structure
 
 ```sh
-fastapi_vue3_app/
+fastapicloud/
 ├─ backend        # Backend directory
 ├─ frontend       # Frontend directory
 ├─ README.en.md   # English documentation
 └─ README.md      # Chinese documentation
 ```
-
-### Page Display
-
-<table>
-    <tr>
-        <td><img src="./frontend/public/登录.jpeg"/>login</td>
-        <td><img src="./frontend/public/注册.png"/>register</td>
-        <td><img src="./frontend/public/忘记密码.png"/>forgot_password</td>
-        <td><img src="./frontend/public/首页.png"/>home</td>
-   </tr>
-   <tr>
-        <td><img src="./frontend/public/工作台.png"/>work</td>
-        <td><img src="./frontend/public/新增用户.png"/>createUser</td>
-        <td><img src="./frontend/public/更新用户.png"/>updateUser</td>
-        <td><img src="./frontend/public/用户详情.png"/>detailUser</td>
-   </tr>
-    <tr>
-        <td><img src="./frontend/public/个人中心.png"/>mine</td>
-        <td><img src="./frontend/public/删除用户.png"/>deleteUser</td>
-        <td><img src="./frontend/public/联系我们.png"/>phoneMe</td>
-        <td><img src="./frontend/public/home.png"/>jinja2 home</td>
-   </tr>
-</table>
 
 ### Quick Start
 
@@ -89,7 +66,7 @@ fastapi_vue3_app/
 
 - 2. Install dependencies:
 
-  - cd fastapi_vue3_app/backend
+  - cd fastapicloud/backend
   - pip install -r requirements.txt
 
 - 3. Start the project: (1. Generate migrations 2. Upgrade migrations 3. Run the project)
