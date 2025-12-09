@@ -16,8 +16,7 @@ from core.security import (
     verify_password,
 )
 from core.base import JWTPayloadSchema, JWTOutSchema
-from app.api.v1.model import User
-from app.api.v1.schema import UserQuerySchema, UserInSchema
+from app.api.v1.model import User, UserQuerySchema, UserInSchema
 
 
 class UserService:

@@ -14,8 +14,7 @@ from core.dependencies import get_current_user
 from core.database import get_db
 from core.response import ExceptResponse, ErrorResponse, SuccessResponse
 from core.base import JWTOutSchema
-from .model import User
-from .schema import UserQuerySchema, UserInSchema
+from .model import User, UserQuerySchema, UserInSchema
 from .service import UserService
 
 # 创建API路由器
