@@ -9,7 +9,7 @@ import { useI18n } from '@/hooks/web/useI18n'
 import { useNow } from '@/hooks/web/useNow'
 import { useDesign } from '@/hooks/web/useDesign'
 import { Icon } from '@/components/Icon'
-import { loginOutApi } from '@/api/login'
+import { logout } from '@/api/user'
 import { useTagsViewStore } from '@/store/modules/tagsView'
 
 const tagsViewStore = useTagsViewStore()
@@ -49,7 +49,7 @@ async function unLock() {
 
 // 返回登录
 async function goLogin() {
-  const res = await loginOutApi().catch(() => {})
+  const res = await logout().catch(() => {})
   if (res) {
     clear()
     tagsViewStore.delAllViews()

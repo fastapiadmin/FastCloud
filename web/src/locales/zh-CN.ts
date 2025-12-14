@@ -165,7 +165,7 @@ export default {
     authorization: '权限管理',
     user: '用户管理',
     role: '角色管理',
-    admin: '系统管理',
+    system: '系统管理',
     document: '文档',
     inputPassword: '密码输入框',
     sticky: '黏性',

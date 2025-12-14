@@ -5,10 +5,10 @@ import { useI18n } from '@/hooks/web/useI18n'
 import { ref, reactive } from 'vue'
 import { Form, FormSchema } from '@/components/Form'
 import { useValidator } from '@/hooks/web/useValidator'
-import { getDictOneApi } from '@/api/common'
 import { useForm } from '@/hooks/web/useForm'
 import Echart from './Echart.vue'
 import ResizeDialog from '@/components/Dialog/src/ResizeDialog.vue'
+import { getDictOneApi } from '@/api/common'
 
 const { required } = useValidator()
 

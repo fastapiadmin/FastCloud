@@ -1,14 +1,14 @@
 import { defineStore } from 'pinia'
 import { store } from '../index'
-import { UserLoginType, UserType } from '@/api/login/types'
 import { ElMessageBox } from 'element-plus'
 import { useI18n } from '@/hooks/web/useI18n'
-import { loginOutApi } from '@/api/login'
 import { useTagsViewStore } from './tagsView'
 import router from '@/router'
+import { logout } from '@/api/user'
+import { UserLoginType, UserTable } from '@/api/user/types'
 
 interface UserState {
-  userInfo?: UserType
+  userInfo?: UserTable
   tokenKey: string
   token: string
   roleRouters?: string[] | AppCustomRouteRecordRaw[]
@@ -35,7 +35,7 @@ export const useUserStore = defineStore('user', {
     getToken(): string {
       return this.token
     },
-    getUserInfo(): UserType | undefined {
+    getUserInfo(): UserTable | undefined {
       return this.userInfo
     },
     getRoleRouters(): string[] | AppCustomRouteRecordRaw[] | undefined {
@@ -55,7 +55,7 @@ export const useUserStore = defineStore('user', {
     setToken(token: string) {
       this.token = token
     },
-    setUserInfo(userInfo?: UserType) {
+    setUserInfo(userInfo?: UserTable) {
       this.userInfo = userInfo
     },
     setRoleRouters(roleRouters: string[] | AppCustomRouteRecordRaw[]) {
@@ -69,7 +69,7 @@ export const useUserStore = defineStore('user', {
         type: 'warning'
       })
         .then(async () => {
-          const res = await loginOutApi().catch(() => {})
+          const res = await logout().catch(() => {})
           if (res) {
             this.reset()
           }

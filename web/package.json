@@ -11,7 +11,7 @@
     "ts:check": "pnpm vue-tsc --noEmit --skipLibCheck",
     "build:pro": "pnpm vite build --mode pro",
     "build:gitee": "pnpm vite build --mode gitee",
-    "build:dev": "NODE_OPTIONS=--max-old-space-size=4096 pnpm vite build --mode dev",
+    "build:dev": "pnpm vite build --mode dev",
     "build:test": "pnpm vite build --mode test",
     "serve:pro": "pnpm vite preview --mode pro",
     "serve:dev": "pnpm vite preview --mode dev",

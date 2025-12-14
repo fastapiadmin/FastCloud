@@ -17,9 +17,9 @@ import {
   ElMessageBox,
   ElIcon
 } from 'element-plus'
-import { getDictOneApi } from '@/api/common'
 import { Icon } from '@/components/Icon'
 import { BaseButton } from '@/components/Button'
+import { getDictOneApi } from '@/api/common'
 
 const appStore = useAppStore()
 

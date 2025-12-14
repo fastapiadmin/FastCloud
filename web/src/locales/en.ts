@@ -167,7 +167,7 @@ export default {
     authorization: 'Authorization',
     user: 'User management',
     role: 'Role management',
-    admin: 'System management',
+    system: 'System management',
     document: 'Document',
     inputPassword: 'InputPassword',
     sticky: 'Sticky',

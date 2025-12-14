@@ -2,11 +2,11 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { useI18n } from '@/hooks/web/useI18n'
 import { Table, TableColumn, TableSlotDefault } from '@/components/Table'
-import { getTableListApi } from '@/api/table'
 import { ref, reactive, unref, onMounted } from 'vue'
 import { ElTag } from 'element-plus'
 import { useTable } from '@/hooks/web/useTable'
 import { BaseButton } from '@/components/Button'
+import { getTableListApi } from '@/api/table'
 
 const { tableRegister, tableMethods, tableState } = useTable({
   fetchDataApi: async () => {

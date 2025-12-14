@@ -26,3 +26,9 @@ export interface UserQuery {
   username?: string
   name?: string
 }
+
+// 用户登录请求类型定义
+export interface UserLoginType {
+  username: string
+  password: string
+}

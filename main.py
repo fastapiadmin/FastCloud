@@ -58,12 +58,12 @@ def create_app() -> FastAPI:
     # 注册路由
     app.include_router(router=admin)
     # 挂载静态文件
-    app.mount(path="/assets", app=StaticFiles(directory=settings.BASE_DIR.joinpath("static/assets")), name="static")
+    # app.mount(path="/assets", app=StaticFiles(directory=settings.BASE_DIR.joinpath("static/assets")), name="static")
     # 处理根路径请求，返回index.html
-    @app.get("/")
-    async def root():
-        from fastapi.responses import FileResponse
-        return FileResponse(settings.BASE_DIR.joinpath("static/index.html"))
+    # @app.get("/")
+    # async def root():
+    #     from fastapi.responses import FileResponse
+    #     return FileResponse(settings.BASE_DIR.joinpath("static/index.html"))
     return app
 
 @cli.command()
