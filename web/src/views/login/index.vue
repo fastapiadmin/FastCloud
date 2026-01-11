@@ -3,7 +3,6 @@ import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { login } from '@/api/user'
-import type { LoginRequest } from '@/api/user'
 
 const router = useRouter()
 const form = reactive<LoginRequest>({

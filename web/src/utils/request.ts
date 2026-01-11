@@ -1,6 +1,5 @@
 import axios from 'axios';
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
-import type { BaseResponse } from './types';
 
 // 创建Axios实例
 const axiosInstance = axios.create({

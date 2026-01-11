@@ -1,5 +1,4 @@
 import apiClient from '@/utils/request';
-import type { BaseResponse, LoginRequest, LoginResponse, PageResponse } from '@/utils/types';
 
 // 用户类型定义
 export interface UserTable {
@@ -28,9 +27,6 @@ export interface UserQuery {
   size?: number;
   name?: string;
 }
-
-// 重新导出类型
-export type { LoginRequest, LoginResponse };
 
 // 用户登录
 export const login = async (params: LoginRequest): Promise<BaseResponse<LoginResponse>> => {
