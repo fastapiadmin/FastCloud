@@ -1,17 +1,17 @@
 <div align="center">
    <p align="center">
-      <img src="./frontend/src/static//logo.png" height="150" alt="logo"/>
-   </p>
-   <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">Fastapi_Vue3_App</h1>
-   <h4 align="center">A rapid development framework for mobile, mini-program, and H5 applications with separated front - end and back - end, based on Fastapi - Vue3 - App.</h4>
+   <img src="./web/src/assets/imgs/logo-dark.svg" height="150" alt="logo"/>
+</p>
+   <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">FastapiCloud</h1>
+   <h4 align="center">A full-stack web application framework with separated front-end and back-end, based on Fastapi and Vue3.</h4>
    <p align="center">
-      <a href="https://gitee.com/tao__tao/fastapi_vue3_app.git">
-         <img src="https://gitee.com/tao__tao/fastapi_vue3_app/badge/star.svg?theme=dark">
+      <a href="https://gitee.com/tao__tao/FastapiCloud.git">
+         <img src="https://gitee.com/tao__tao/FastapiCloud/badge/star.svg?theme=dark">
       </a>
-      <a href="https://github.com/1014TaoTao/fastapi_vue3_app.git">
-         <img src="https://img.shields.io/github/stars/1014TaoTao/fastapi_vue3_app?style=social">
+      <a href="https://github.com/1014TaoTao/FastapiCloud.git">
+         <img src="https://img.shields.io/github/stars/1014TaoTao/FastapiCloud?style=social">
       </a>
-      <a href="https://gitee.com/tao__tao/fastapi_vue3_app/blob/master/LICENSE">
+      <a href="https://gitee.com/tao__tao/FastapiCloud/blob/master/LICENSE">
          <img src="https://img.shields.io/badge/License-MIT-orange">
       </a>
       <img src="https://img.shields.io/badge/Python-≥3.10-blue">
@@ -20,11 +20,11 @@
 
 English | [Chinese](./README.md)
 
-## Introduction to the FastAPI-Vue3-App Project
+## Introduction to the FastapiCloud Project
 
 ### Project Overview
 
-FastAPI-Vue3-App is a full-stack open-source project aimed at helping developers quickly build mobile, mini-program, and H5 applications. The backend uses FastAPI + SQLModel + Alembic + JWT asynchronous programming to improve concurrency, simplify database operations, implement authentication and authorization, and manage versions. The frontend adopts Vue3 + Vite5 + Pinia + UniApp + uView-plus to achieve rapid construction and cross-platform development. It provides an all-in-one development solution, being efficient and convenient.
+FastapiCloud is a full-stack open-source project aimed at helping developers quickly build web applications. The backend uses FastAPI + SQLModel + Alembic + JWT asynchronous programming to improve concurrency, simplify database operations, implement authentication and authorization, and manage versions. The frontend adopts Vue3 + Vite7 + Vue Router + Element Plus to achieve rapid construction and responsive development. It provides an all-in-one development solution, being efficient and convenient.
 
 > Backend Technology Stack:
 
@@ -36,10 +36,10 @@ FastAPI-Vue3-App is a full-stack open-source project aimed at helping developers
 > Frontend Technology Stack:
 
 - **Vue3**: A progressive JavaScript framework for building user interfaces.
-- **Vite**: A fast frontend build tool that supports hot reloading.
-- **Pinia**: A state management library for Vue3 that provides a rich set of components.
-- **UniApp**: A cross-platform application development framework that supports multi-terminal development.
-- **uView-plus**: A Vue3-based UI component library that provides a rich set of components.
+- **Vite7**: A fast frontend build tool that supports hot reloading.
+- **Vue Router**: Vue official router manager.
+- **Axios**: A Promise-based HTTP client for sending requests.
+- **Element Plus**: A Vue3-based UI component library that provides rich components.
 
 ### Main Features
 
@@ -52,47 +52,62 @@ FastAPI-Vue3-App is a full-stack open-source project aimed at helping developers
 
 ```sh
 fastapicloud/
-├─ backend        # Backend directory
-├─ frontend       # Frontend directory
-├─ README.en.md   # English documentation
-└─ README.md      # Chinese documentation
+├─ alembic/          # Database migration tool
+├─ apps/             # Backend application code
+├─ core/             # Core configuration and utilities
+├─ static/           # Static resources
+├─ test/             # Test code
+├─ utils/            # Utility functions
+├─ web/              # Frontend code
+├─ .env              # Environment variables
+├─ alembic.ini       # Alembic configuration
+├─ main.py           # Backend entry point
+├─ requirements.txt  # Backend dependencies
+├─ README.en.md      # English documentation
+└─ README.md         # Chinese documentation
 ```
 
 ### Quick Start
 
 - 1. Clone the project
 
-  - git clone <https://gitee.com/tao__tao/fastapi_vue3_app.git>
+  - git clone <https://gitee.com/tao__tao/FastapiCloud.git>
 
 - 2. Install dependencies:
 
-  - cd fastapicloud/backend
-  - pip install -r requirements.txt
+  - Backend dependencies:
+    - cd fastapicloud
+    - pip install -r requirements.txt
+  - Frontend dependencies:
+    - cd fastapicloud/web
+    - pnpm install
 
-- 3. Start the project: (1. Generate migrations 2. Upgrade migrations 3. Run the project)
+- 3. Start the project:
 
-  - python3 main.py revision
-  - python3 main.py upgrade
-  - python3 main.py run
+  - Backend startup:
+    - Generate and apply database migrations: python3 main.py migrate
+    - Run backend service: python3 main.py run
+  - Frontend startup:
+    - cd fastapicloud/web
+    - pnpm dev
 
 - 4. Access the project:
   
-  - 前端地址：<http://127.0.0.1:5180>
-  - 账号：`admin` 密码：`123456`
-  - 接口地址：<http://127.0.0.1:8000/docs>
+  - Frontend address: <http://127.0.0.1:5173>
+  - Backend API documentation: <http://127.0.0.1:8000/docs>
+  - Username: `admin` Password: `123456`
 
 ### Special Thanks
 
 Thanks to the contributions and support of the following projects, which have enabled the successful completion of this project:
 
-- [FastAPI 项目](https://github.com/fastapi/fastapi)
-- [SqlModel 项目](https://github.com/fastapi/sqlmodel)
-- [Alembic 项目](https://github.com/sqlalchemy/alembic)
-- [PyJWT 项目](https://github.com/jpadilla/pyjwt)
-- [Vue3 项目](https://github.com/vuejs/vue)
-- [Vite 项目](https://github.com/vitejs/vite)
-- [UniApp 项目](https://github.com/dcloudio/uni-app)
-- [uView-plus 项目](https://uiadmin.net/uview-plus)
+- [FastAPI Project](https://github.com/fastapi/fastapi)
+- [SqlModel Project](https://github.com/fastapi/sqlmodel)
+- [Alembic Project](https://github.com/sqlalchemy/alembic)
+- [PyJWT Project](https://github.com/jpadilla/pyjwt)
+- [Vue3 Project](https://github.com/vuejs/vue)
+- [Vite Project](https://github.com/vitejs/vite)
+- [Element Plus Project](https://github.com/element-plus/element-plus)
 
 ### Participation and Support
 
@@ -106,8 +121,7 @@ Below are the group QR codes, which can be used for technical exchanges and disc
 
 <table>
     <tr>
-      <td><img src="https://gitee.com/tao__tao/fastapi_vue3_admin/raw/master/mkdocs/docs/resources/images/微信.jpg"/></td>
-      <td><img src="https://gitee.com/tao__tao/fastapi_vue3_admin/raw/master/mkdocs/docs/resources/images/微信群.jpg"/></td>
-      <td><img src="https://gitee.com/tao__tao/fastapi_vue3_admin/raw/master/mkdocs/docs/resources/images/wechatPay.jpg"/></td>
+      <td><img src="https://gitee.com/tao__tao/FastDocs/raw/main/src/public/group.jpg"/></td>
+      <td><img src="https://gitee.com/tao__tao/FastDocs/raw/main/src/public/wechatPay.jpg"/></td>
     </tr>
 </table>
