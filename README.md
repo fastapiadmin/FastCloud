@@ -5,13 +5,13 @@
    <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">FastapiCloud</h1>
    <h4 align="center">基于 Fastapi 和 Vue3 的前后端分离全栈 Web 应用框架。</h4>
    <p align="center">
-      <a href="https://gitee.com/tao__tao/FastapiCloud.git">
-         <img src="https://gitee.com/tao__tao/FastapiCloud/badge/star.svg?theme=dark">
+      <a href="https://gitee.com/fastapiadmin/FastapiCloud.git">
+         <img src="https://gitee.com/fastapiadmin/FastapiCloud/badge/star.svg?theme=dark">
       </a>
-      <a href="https://github.com/1014TaoTao/FastapiCloud.git">
-         <img src="https://img.shields.io/github/stars/1014TaoTao/FastapiCloud?style=social">
+      <a href="https://github.com/fastapiadmin/FastapiCloud.git">
+         <img src="https://img.shields.io/github/stars/fastapiadmin/FastapiCloud?style=social">
       </a>
-      <a href="https://gitee.com/tao__tao/FastapiCloud/blob/master/LICENSE">
+      <a href="https://gitee.com/fastapiadmin/FastapiCloud/blob/master/LICENSE">
          <img src="https://img.shields.io/badge/License-MIT-orange">
       </a>
       <img src="https://img.shields.io/badge/Python-≥3.10-blue">
@@ -73,7 +73,7 @@ fastapicloud/
 
 - 1. 克隆项目
 
-  - git clone <https://gitee.com/tao__tao/FastapiCloud.git>
+  - git clone <https://gitee.com/fastapiadmin/FastapiCloud.git>
 
 - 2. 安装依赖：
 
@@ -123,7 +123,7 @@ fastapicloud/
 
 <table>
     <tr>
-      <td><img src="https://gitee.com/tao__tao/FastDocs/raw/main/src/public/group.jpg"/></td>
-      <td><img src="https://gitee.com/tao__tao/FastDocs/raw/main/src/public/wechatPay.jpg"/></td>
+      <td><img src="https://gitee.com/fastapiadmin/FastDocs/raw/main/src/public/group.jpg"/></td>
+      <td><img src="https://gitee.com/fastapiadmin/FastDocs/raw/main/src/public/wechatPay.jpg"/></td>
     </tr>
 </table>
