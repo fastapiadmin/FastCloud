@@ -2,16 +2,16 @@
    <p align="center">
    <img src="./web/src/assets/imgs/logo-dark.svg" height="150" alt="logo"/>
 </p>
-   <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">FastapiCloud</h1>
+   <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">FastCloud</h1>
    <h4 align="center">A full-stack web application framework with separated front-end and back-end, based on Fastapi and Vue3.</h4>
    <p align="center">
-      <a href="https://gitee.com/fastapiadmin/FastapiCloud.git">
-         <img src="https://gitee.com/fastapiadmin/FastapiCloud/badge/star.svg?theme=dark">
+      <a href="https://gitee.com/fastapiadmin/FastCloud.git">
+         <img src="https://gitee.com/fastapiadmin/FastCloud/badge/star.svg?theme=dark">
       </a>
-      <a href="https://github.com/fastapiadmin/FastapiCloud.git">
-         <img src="https://img.shields.io/github/stars/fastapiadmin/FastapiCloud?style=social">
+      <a href="https://github.com/fastapiadmin/FastCloud.git">
+         <img src="https://img.shields.io/github/stars/fastapiadmin/FastCloud?style=social">
       </a>
-      <a href="https://gitee.com/fastapiadmin/FastapiCloud/blob/master/LICENSE">
+      <a href="https://gitee.com/fastapiadmin/FastCloud/blob/master/LICENSE">
          <img src="https://img.shields.io/badge/License-MIT-orange">
       </a>
       <img src="https://img.shields.io/badge/Python-≥3.10-blue">
@@ -20,11 +20,11 @@
 
 English | [Chinese](./README.md)
 
-## Introduction to the FastapiCloud Project
+## Introduction to the FastCloud Project
 
 ### Project Overview
 
-FastapiCloud is a full-stack open-source project aimed at helping developers quickly build web applications. The backend uses FastAPI + SQLModel + Alembic + JWT asynchronous programming to improve concurrency, simplify database operations, implement authentication and authorization, and manage versions. The frontend adopts Vue3 + Vite7 + Vue Router + Element Plus to achieve rapid construction and responsive development. It provides an all-in-one development solution, being efficient and convenient.
+FastCloud is a full-stack open-source project aimed at helping developers quickly build web applications. The backend uses FastAPI + SQLModel + Alembic + JWT asynchronous programming to improve concurrency, simplify database operations, implement authentication and authorization, and manage versions. The frontend adopts Vue3 + Vite7 + Vue Router + Element Plus to achieve rapid construction and responsive development. It provides an all-in-one development solution, being efficient and convenient.
 
 > Backend Technology Stack:
 
@@ -51,7 +51,7 @@ FastapiCloud is a full-stack open-source project aimed at helping developers qui
 ### Directory Structure
 
 ```sh
-fastapicloud/
+FastCloud/
 ├─ alembic/          # Database migration tool
 ├─ apps/             # Backend application code
 ├─ core/             # Core configuration and utilities
@@ -73,15 +73,15 @@ fastapicloud/
 
 - 1. Clone the project
 
-  - git clone <https://gitee.com/fastapiadmin/FastapiCloud.git>
+  - git clone <https://gitee.com/fastapiadmin/FastCloud.git>
 
 - 2. Install dependencies:
 
   - Backend dependencies:
-    - cd fastapicloud
+    - cd FastCloud
     - pip install -r requirements.txt
   - Frontend dependencies:
-    - cd fastapicloud/web
+    - cd FastCloud/web
     - pnpm install
 
 - 3. Start the project:
@@ -90,7 +90,7 @@ fastapicloud/
     - Generate and apply database migrations: python3 main.py migrate
     - Run backend service: python3 main.py run
   - Frontend startup:
-    - cd fastapicloud/web
+    - cd FastCloud/web
     - pnpm dev
 
 - 4. Access the project:

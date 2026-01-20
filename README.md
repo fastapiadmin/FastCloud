@@ -2,16 +2,16 @@
    <p align="center">
    <img src="./web/src/assets/imgs/logo-dark.svg" height="150" alt="logo"/>
 </p>
-   <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">FastapiCloud</h1>
+   <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">FastCloud</h1>
    <h4 align="center">基于 Fastapi 和 Vue3 的前后端分离全栈 Web 应用框架。</h4>
    <p align="center">
-      <a href="https://gitee.com/fastapiadmin/FastapiCloud.git">
-         <img src="https://gitee.com/fastapiadmin/FastapiCloud/badge/star.svg?theme=dark">
+      <a href="https://gitee.com/fastapiadmin/FastCloud.git">
+         <img src="https://gitee.com/fastapiadmin/FastCloud/badge/star.svg?theme=dark">
       </a>
-      <a href="https://github.com/fastapiadmin/FastapiCloud.git">
-         <img src="https://img.shields.io/github/stars/fastapiadmin/FastapiCloud?style=social">
+      <a href="https://github.com/fastapiadmin/FastCloud.git">
+         <img src="https://img.shields.io/github/stars/fastapiadmin/FastCloud?style=social">
       </a>
-      <a href="https://gitee.com/fastapiadmin/FastapiCloud/blob/master/LICENSE">
+      <a href="https://gitee.com/fastapiadmin/FastCloud/blob/master/LICENSE">
          <img src="https://img.shields.io/badge/License-MIT-orange">
       </a>
       <img src="https://img.shields.io/badge/Python-≥3.10-blue">
@@ -20,11 +20,11 @@
 
 English | [Chinese](./README.md)
 
-## FastapiCloud项目介绍
+## FastCloud项目介绍
 
 ### 项目概述
 
-FastapiCloud是一个全栈开源项目，旨在帮助开发者快速构建Web应用。后端使用FastAPI + SQLModel + Alembic + JWT异步编程，提高并发能力，简化数据库操作，实现身份认证和授权，以及版本管理。前端采用Vue3 + Vite7 + Vue Router + Element Plus实现快速构建和响应式开发。它提供了一站式开发解决方案，高效便捷。
+FastCloud是一个全栈开源项目，旨在帮助开发者快速构建Web应用。后端使用FastAPI + SQLModel + Alembic + JWT异步编程，提高并发能力，简化数据库操作，实现身份认证和授权，以及版本管理。前端采用Vue3 + Vite7 + Vue Router + Element Plus实现快速构建和响应式开发。它提供了一站式开发解决方案，高效便捷。
 
 > 后端技术栈：
 
@@ -51,7 +51,7 @@ FastapiCloud是一个全栈开源项目，旨在帮助开发者快速构建Web�
 ### 目录结构
 
 ```sh
-fastapicloud/
+FastCloud/
 ├─ alembic/          # 数据库迁移工具
 ├─ apps/             # 后端应用代码
 ├─ core/             # 核心配置和工具
@@ -73,15 +73,15 @@ fastapicloud/
 
 - 1. 克隆项目
 
-  - git clone <https://gitee.com/fastapiadmin/FastapiCloud.git>
+  - git clone <https://gitee.com/fastapiadmin/FastCloud.git>
 
 - 2. 安装依赖：
 
   - 后端依赖：
-    - cd fastapicloud
+    - cd FastCloud
     - pip install -r requirements.txt
   - 前端依赖：
-    - cd fastapicloud/web
+    - cd FastCloud/web
     - pnpm install
 
 - 3. 启动项目：
@@ -90,7 +90,7 @@ fastapicloud/
     - 生成并执行数据库迁移：python3 main.py migrate
     - 运行后端服务：python3 main.py run
   - 前端启动：
-    - cd fastapicloud/web
+    - cd FastCloud/web
     - pnpm dev
 
 - 4. 访问项目：
