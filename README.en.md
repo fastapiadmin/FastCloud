@@ -123,7 +123,7 @@ Below are the group QR codes, which can be used for technical exchanges and disc
 
 <table>
     <tr>
-      <td><img src="https://gitee.com/fastapiadmin/FastDocs/raw/main/docs/public/group.jpg"/></td>
-      <td><img src="https://gitee.com/fastapiadmin/FastDocs/raw/main/docs/public/wechatPay.jpg"/></td>
+      <td><img src="https://gitee.com/fastapiadmin/FastDocs/raw/master/docs/public/group.jpg"/></td>
+      <td><img src="https://gitee.com/fastapiadmin/FastDocs/raw/master/docs/public/wechatPay.jpg"/></td>
     </tr>
 </table>
