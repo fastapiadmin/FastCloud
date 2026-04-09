@@ -1,10 +1,20 @@
-.venv
+__pycache__
+*.pyc
+*.pyo
 .vscode
 .idea
-.chat
 .DS_Store
-__pycache__
+.git
 
-logs/*
-
-web/node_modules
+backend/__pycache__
+backend/.vscode
+backend/.idea
+backend/.DS_Store
+backend/venv
+backend/.venv
+backend/.mypy_cache
+backend/.pytest_cache
+backend/alembic/versions/*
+backend/*.db
+backend/.ruff_cache
+backend/.ruff.toml

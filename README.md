@@ -1,129 +1,190 @@
 <div align="center">
-   <p align="center">
-   <img src="./web/src/assets/imgs/logo-dark.svg" height="150" alt="logo"/>
-</p>
-   <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">FastCloud</h1>
-   <h4 align="center">基于 Fastapi 和 Vue3 的前后端分离全栈 Web 应用框架。</h4>
-   <p align="center">
-      <a href="https://gitee.com/fastapiadmin/FastCloud.git">
-         <img src="https://gitee.com/fastapiadmin/FastCloud/badge/star.svg?theme=dark">
-      </a>
-      <a href="https://github.com/fastapiadmin/FastCloud.git">
-         <img src="https://img.shields.io/github/stars/fastapiadmin/FastCloud?style=social">
-      </a>
-      <a href="https://gitee.com/fastapiadmin/FastCloud/blob/master/LICENSE">
-         <img src="https://img.shields.io/badge/License-MIT-orange">
-      </a>
-      <img src="https://img.shields.io/badge/Python-≥3.10-blue">
-   </p>
+     <p align="center">
+          <img src="backend/data/logo.png" width="150" height="150" alt="logo" />  
+     </p>
+     <h1>FastCloud <sup style="background-color: #28a745; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.4em; vertical-align: super; margin-left: 5px;">v2.0.0</h1>
+     <h3>现代化全栈快速开发平台</h3>
+     <p>如果你喜欢这个项目，给个 ⭐️ 支持一下吧！</p>
+     <p align="center">
+          <a href="https://gitee.com/fastapiadmin/FastCloud.git" target="_blank">
+               <img src="https://gitee.com/fastapiadmin/FastCloud/badge/star.svg?theme=dark" alt="Gitee Stars">
+          </a>
+          <a href="https://github.com/fastapiadmin/FastCloud.git" target="_blank">
+               <img src="https://img.shields.io/github/stars/fastapiadmin/FastCloud?style=social" alt="GitHub Stars">
+          </a>
+          <a href="https://gitee.com/fastapiadmin/FastCloud/blob/master/LICENSE" target="_blank">
+               <img src="https://img.shields.io/badge/License-MIT-orange" alt="License">
+          </a>
+          <img src="https://img.shields.io/badge/Python-≥3.10-blue"> 
+          <img src="https://img.shields.io/badge/NodeJS-≥20.0-blue"> 
+          <img src="https://img.shields.io/badge/MySQL-≥8.0-blue"> 
+          <img src="https://img.shields.io/badge/Redis-≥7.0-blue"> 
+          <img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/> 
+          <img src="https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3"/> 
+          <img src="https://img.shields.io/badge/-JavaScript-563D7C?style=flat-square&logo=bootstrap"/> 
+     </p>
+
+简体中文 | [English](./README.en.md)
+
 </div>
 
-English | [Chinese](./README.md)
+## 📘 项目介绍
 
-## FastCloud项目介绍
+**FastCloud** 是FastapiAdmin工程轻量化版本，旨在帮助开发者高效搭建高质量的企业级中后台系统。该项目采用 **前后端分离架构**，融合 Python 后端框架 `FastAPI` 和前端主流框架 `Vue3` 实现多端统一开发，提供了一站式开箱即用的开发体验。
 
-### 项目概述
+> **设计初心**: 以模块化、松耦合为核心，追求丰富的功能模块、简洁易用的接口、详尽的开发文档和便捷的维护方式。通过统一框架和组件，降低技术选型成本，遵循开发规范和设计模式，构建强大的代码分层模型，搭配完善的本地中文化支持，专为团队和企业开发场景量身定制。
 
-FastCloud是一个全栈开源项目，旨在帮助开发者快速构建Web应用。后端使用FastAPI + SQLModel + Alembic + JWT异步编程，提高并发能力，简化数据库操作，实现身份认证和授权，以及版本管理。前端采用Vue3 + Vite7 + Vue Router + Element Plus实现快速构建和响应式开发。它提供了一站式开发解决方案，高效便捷。
+<a id="packaging-philosophy"></a>
 
-> 后端技术栈：
+## 📐 分包理念：两种组织方式与本项目选择
 
-- **FastAPI**: 利用异步编程特性增强应用的并发处理能力。
-- **SQLModel**: 一个简单易用的ORM工具，简化数据库操作。
-- **Alembic**: 一个数据库迁移工具，用于管理数据库版本。
-- **JWT**: 用于身份验证和授权。
+讨论的是**源码目录如何划分**（文件夹怎么分包），与是否在代码里做 MVC / Controller–Service–CRUD **逻辑分层**不是同一件事：分层可以有，且本项目仍有；差别在于**第一层**是按「业务域」还是按「技术层」切目录。
 
-> 前端技术栈：
+| 方式 | 组织方式 | 典型目录（示例） |
+|------|----------|------------------|
+| **按技术层次分包**（package by layer） | 同一类技术文件归在一起 | 顶层 `models/`、`schemas/`、`cruds/`、`services/`、`controllers/` … |
+| **按业务特性分包**（package by feature / vertical slice） | 同一业务域的文件归在一起 | 后端 `app/api/v1/module_*/<子域>/` 下并列 `controller.py`、`service.py`、`crud.py`、`model.py`、`schema.py`；可选能力在 `app/plugin/...` |
 
-- **Vue3**: 一个渐进式JavaScript框架，用于构建用户界面。
-- **Vite7**: 一个快速的前端构建工具，支持热重载。
-- **Vue Router**: Vue官方路由管理器。
-- **Axios**: 一个基于Promise的HTTP客户端，用于发送请求。
-- **Element Plus**: 一个基于Vue3的UI组件库，提供丰富的组件。
+**本项目（后端）采用：按业务特性分包（竖切）。**
 
-### 主要功能
+**设计初心（为何这样选）**
 
-- **易于上手**：提供完整的项目结构和示例代码，减少初始配置时间。
-- **模块化设计**：每个组件独立开发，便于维护和扩展。
-- **完善的文档**：详细的README和API文档，便于学习和参考。
-- **社区支持**：完全开源，欢迎提交issue和pull request。
+- **解耦的单位是业务边界**：以系统管理、监控、各业务子域等为模块，子域内再分文件；多人协作时尽量落在不同子目录，减少无关冲突，而不是所有人改同一套全局 `models/`、`services/`。
+- **面向未来的拆分**：若后续要将某一模块独立成子工程、独立仓库或独立发布，**一整块目录**即是一条自然边界；按层分包则往往需要跨多个顶层目录抽取，迁移成本更高。
+- **分层仍然存在**：Controller → Service → CRUD → Model / Schema 的**逻辑分层没有消失**，只是**叠在业务包内部**，而不是用「全项目唯一的分层目录」作为第一维划分。
 
-### 目录结构
+**与按层分包的取舍**：按层分包在「小团队、强调整体浏览某一技术层」时也有其价值；本项目在**优先域解耦、优先多团队按模块并行**的前提下，明确采用**按特性竖切**。若更关注单仓库内一眼扫全表结构，可配合 IDE、数据库工具与 Alembic，而不必为此改为全局 `models/` 单目录。
+
+---
+
+## 🎯 核心优势
+
+| 优势 | 描述 |
+| ---- | ---- |
+| 🔥 **现代化技术栈** | 基于 FastAPI + Vue3 + TypeScript 等前沿技术构建 |
+| ⚡ **高性能异步** | 利用 FastAPI 异步特性和 Redis 缓存优化响应速度 |
+| 🔐 **安全可靠** | JWT + OAuth2 认证机制，RBAC 权限控制模型 |
+| 🧱 **模块化设计** | 高度解耦的系统架构，便于扩展和维护 |
+| 🌐 **全栈支持** | Web端 + 移动端(H5) + 后端一体化解决方案 |
+| 🚀 **快速部署** | Docker 一键部署，支持生产环境快速上线 |
+| 📖 **完善文档** | 详细的开发文档和教程，降低学习成本 |
+| 🤖 **智能体框架** | 基于Agno的开发智能体 |
+
+## 🍪 演示环境
+
+- 💻 网页端：[https://service.fastapiadmin.com/web](https://service.fastapiadmin.com/web)
+- 📱 移动端：[https://service.fastapiadmin.com/app](https://service.fastapiadmin.com/app)
+- 👤 登录账号：`admin` 密码：`123456`
+
+
+## 📦 工程结构概览
 
 ```sh
-FastCloud/
-├─ alembic/          # 数据库迁移工具
-├─ apps/             # 后端应用代码
-├─ core/             # 核心配置和工具
-├─ static/           # 静态资源
-├─ test/             # 测试代码
-├─ utils/            # 工具函数
-├─ web/              # 前端代码
-├─ .env              # 环境变量配置
-├─ alembic.ini       # Alembic配置
-├─ main.py           # 后端入口文件
-├─ requirements.txt  # 后端依赖
-├─ README.en.md      # 英文文档
-└─ README.md         # 中文文档
+FastapiAdmin
+├─ backend               # 后端工程 (FastAPI + Python)
+├─ frontend              # Web前端工程 (Vue3 + Element Plus)
+├─ LICENSE               # 开源协议
+|─ README.en.md          # 英文文档
+└─ README.md             # 中文文档
 ```
 
-![服务截图](./web/src/assets/imgs/image.png)
+## 🔧 模块展示
 
-### 快速开始
+### web 端
 
-- 1. 克隆项目
+| 模块名 <div style="width:60px"/> | 截图 |
+| ----- | --- |
+| 仪表盘   | ![仪表盘](backend/data/dashboard.png) |
+| 代码生成  | ![代码生成](backend/data/gencode.png) |
+| 智能助手  | ![智能助手](backend/data/ai.png) |
 
-  - git clone <https://gitee.com/fastapiadmin/FastCloud.git>
 
-- 2. 安装依赖：
+## 🚀 快速开始
 
-  - 后端依赖：
-    - cd FastCloud
-    - pip install -r requirements.txt
-  - 前端依赖：
-    - cd FastCloud/web
-    - pnpm install
+### 环境要求
 
-- 3. 启动项目：
+| 类型 | 技术栈 | 版本 |
+|------|--------|------|
+| 后端 | Python | ≥ 3.10（推荐 3.12） |
+| 后端 | FastAPI | 0.109+ |
+| 前端 | Node.js | ≥ 20.0 |
+| 前端 | Vue3 | 3.3+ |
+| 数据库 |  SQLite | 见 `backend/env` 配置 |
 
-  - 后端启动：
-    - 生成并执行数据库迁移：python3 main.py migrate
-    - 运行后端服务：python3 main.py run
-  - 前端启动：
-    - cd FastCloud/web
-    - pnpm dev
+### 获取代码
 
-- 4. 访问项目：
-  
-  - 前端地址：<http://127.0.0.1:5173>
-  - 后端API文档：<http://127.0.0.1:8000/docs>
-  - 账号：`admin` 密码：`123456`
+```bash
+# 克隆代码到本地
+git clone https://gitee.com/fastapiadmin/FastCloud.git
+# 或者
+git clone https://github.com/fastapiadmin/FastCloud.git
+```
 
-### 特别感谢
+### 后端启动
 
-感谢以下项目的贡献和支持，使本项目能够顺利完成：
+#### 使用 uv（推荐，与 `backend/pyproject.toml` 一致）
 
-- [FastAPI 项目](https://github.com/fastapi/fastapi)
-- [SqlModel 项目](https://github.com/fastapi/sqlmodel)
-- [Alembic 项目](https://github.com/sqlalchemy/alembic)
-- [PyJWT 项目](https://github.com/jpadilla/pyjwt)
-- [Vue3 项目](https://github.com/vuejs/vue)
-- [Vite 项目](https://github.com/vitejs/vite)
-- [Element Plus 项目](https://github.com/element-plus/element-plus)
+```bash
+cd backend
+uv sync
+# 启动
+uv run main.py run
+```
 
-### 参与和支持
+#### 使用传统 pip / venv
 
-感谢您的关注和支持！如果您认为本项目对您有帮助，请给我们一个Star！您的支持是我们前进的动力。同时，欢迎所有开发者贡献代码，共同完善这个项目。
+```bash
+cd backend
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+python main.py run
+```
 
-## 🎨 微信群
+### 前端端启动
 
-以下是交流群二维码，可用于技术交流和讨论项目使用过程中遇到的各种问题。真诚希望大家能够共同优化项目，积极讨论，互相支持！
+#### 使用pnpm或npm
 
-### 群聊二维码
+```bash
+cd frontend
+pnpm install
+# 启动
+pnpm dev
+# 构建生产版本
+pnpm build
+```
 
-<table>
-    <tr>
-      <td><img src="https://gitee.com/fastapiadmin/FastDocs/raw/master/docs/public/group.jpg"/></td>
-      <td><img src="https://gitee.com/fastapiadmin/FastDocs/raw/master/docs/public/wechatPay.jpg"/></td>
-    </tr>
-</table>
+## ℹ️ 帮助
+
+更多详情请查看 [官方文档](https://service.fastapiadmin.com)
+
+## 👥 贡献者
+
+<a href="https://github.com/fastapiadmin/FastCloud/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=fastapiadmin/FastapiAdmin"/>
+</a>
+
+## 🙏 特别鸣谢
+
+感谢以下开源项目的贡献和支持：
+
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [Pydantic](https://docs.pydantic.dev/)
+- [SQLAlchemy](https://www.sqlalchemy.org/)
+- [Vue3](https://cn.vuejs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://github.com/vitejs/vite)
+- [Element Plus](https://element-plus.org/)
+
+## 🎨 社区交流
+
+| 群组二维码 | 微信支付二维码 |
+| --- | --- |
+| ![群组二维码](backend/data/group.jpg) | ![微信支付二维码](backend/data/wechatPay.jpg) |
+
+## ❤️ 支持项目
+
+如果你喜欢这个项目，请给我一个 ⭐️ Star 支持一下吧！非常感谢！
+
+[![Stargazers over time](https://starchart.cc/fastapiadmin/FastCloud.svg?variant=adaptive)](https://starchart.cc/fastapiadmin/FastCloud)

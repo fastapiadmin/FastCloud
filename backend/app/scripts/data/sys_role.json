@@ -1,0 +1,10 @@
+[
+  {
+    "name": "管理员角色",
+    "code": "ADMIN",
+    "status": "0",
+    "order": 1,
+    "data_scope": 4,
+    "description": "初始化角色"
+  }
+]

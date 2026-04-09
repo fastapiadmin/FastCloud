@@ -1,129 +1,190 @@
 <div align="center">
-   <p align="center">
-   <img src="./web/src/assets/imgs/logo-dark.svg" height="150" alt="logo"/>
-</p>
-   <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">FastCloud</h1>
-   <h4 align="center">A full-stack web application framework with separated front-end and back-end, based on Fastapi and Vue3.</h4>
-   <p align="center">
-      <a href="https://gitee.com/fastapiadmin/FastCloud.git">
-         <img src="https://gitee.com/fastapiadmin/FastCloud/badge/star.svg?theme=dark">
-      </a>
-      <a href="https://github.com/fastapiadmin/FastCloud.git">
-         <img src="https://img.shields.io/github/stars/fastapiadmin/FastCloud?style=social">
-      </a>
-      <a href="https://gitee.com/fastapiadmin/FastCloud/blob/master/LICENSE">
-         <img src="https://img.shields.io/badge/License-MIT-orange">
-      </a>
-      <img src="https://img.shields.io/badge/Python-≥3.10-blue">
-   </p>
+     <p align="center">
+          <img src="backend/data/logo.png" width="150" height="150" alt="logo" />  
+     </p>
+     <h1>FastCloud <sup style="background-color: #28a745; color: white; padding: 2px 6px; border-radius: 3px; font-size: 0.4em; vertical-align: super; margin-left: 5px;">v2.0.0</sup></h1>
+     <h3>Modern Full-Stack Rapid Development Platform</h3>
+     <p>If you like this project, please give it a ⭐️ to show your support!</p>
+     <p align="center">
+          <a href="https://gitee.com/fastapiadmin/FastCloud.git" target="_blank">
+               <img src="https://gitee.com/fastapiadmin/FastCloud/badge/star.svg?theme=dark" alt="Gitee Stars">
+          </a>
+          <a href="https://github.com/fastapiadmin/FastCloud.git" target="_blank">
+               <img src="https://img.shields.io/github/stars/fastapiadmin/FastCloud?style=social" alt="GitHub Stars">
+          </a>
+          <a href="https://gitee.com/fastapiadmin/FastCloud/blob/master/LICENSE" target="_blank">
+               <img src="https://img.shields.io/badge/License-MIT-orange" alt="License">
+          </a>
+          <img src="https://img.shields.io/badge/Python-≥3.10-blue"> 
+          <img src="https://img.shields.io/badge/NodeJS-≥20.0-blue"> 
+          <img src="https://img.shields.io/badge/MySQL-≥8.0-blue"> 
+          <img src="https://img.shields.io/badge/Redis-≥7.0-blue"> 
+          <img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/> 
+          <img src="https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3"/> 
+          <img src="https://img.shields.io/badge/-JavaScript-563D7C?style=flat-square&logo=bootstrap"/> 
+     </p>
+
+English | [简体中文](./README.md)
+
 </div>
 
-English | [Chinese](./README.md)
+## 📘 Project Introduction
 
-## Introduction to the FastCloud Project
+**FastCloud** is a lightweight version of FastapiAdmin, designed to help developers efficiently build high-quality enterprise-level backend systems. This project adopts a **frontend-backend separation architecture**, integrating the Python backend framework `FastAPI` and the mainstream frontend framework `Vue3` to achieve unified development across multiple terminals, providing a one-stop out-of-the-box development experience.
 
-### Project Overview
+> **Design Philosophy**: With modularity and loose coupling at its core, it pursues rich functional modules, simple and easy-to-use interfaces, detailed development documentation, and convenient maintenance methods. By unifying frameworks and components, it reduces the cost of technology selection, follows development specifications and design patterns, builds a powerful code hierarchical model, and comes with comprehensive local Chinese language support. It is specifically tailored for team and enterprise development scenarios.
 
-FastCloud is a full-stack open-source project aimed at helping developers quickly build web applications. The backend uses FastAPI + SQLModel + Alembic + JWT asynchronous programming to improve concurrency, simplify database operations, implement authentication and authorization, and manage versions. The frontend adopts Vue3 + Vite7 + Vue Router + Element Plus to achieve rapid construction and responsive development. It provides an all-in-one development solution, being efficient and convenient.
+<a id="packaging-philosophy"></a>
 
-> Backend Technology Stack:
+## 📐 Packaging Philosophy: Two Organization Methods and This Project's Choice
 
-- **FastAPI**: Utilizes asynchronous programming features to enhance the application's concurrent processing capabilities.
-- **SQLModel**: A simple and easy-to-use ORM tool that simplifies database operations.
-- **Alembic**: A database migration tool for managing database versions.
-- **JWT**: Used for authentication and authorization.
+This discusses **how to divide source code directories** (how to package folders), which is not the same as whether to implement MVC / Controller–Service–CRUD **logical layering** in code: layering can exist, and this project still has it; the difference lies in whether the **first layer** is divided by "business domain" or "technical layer".
 
-> Frontend Technology Stack:
+| Method | Organization | Typical Directory (Example) |
+|--------|--------------|----------------------------|
+| **Package by Technical Layer** (package by layer) | Group files of the same technical type together | Top-level `models/`, `schemas/`, `cruds/`, `services/`, `controllers/` … |
+| **Package by Business Feature** (package by feature / vertical slice) | Group files of the same business domain together | Under backend `app/api/v1/module_*/<subdomain>/`: `controller.py`, `service.py`, `crud.py`, `model.py`, `schema.py`; optional capabilities in `app/plugin/...` |
 
-- **Vue3**: A progressive JavaScript framework for building user interfaces.
-- **Vite7**: A fast frontend build tool that supports hot reloading.
-- **Vue Router**: Vue official router manager.
-- **Axios**: A Promise-based HTTP client for sending requests.
-- **Element Plus**: A Vue3-based UI component library that provides rich components.
+**This project (backend) uses: Package by Business Feature (vertical slice).**
 
-### Main Features
+**Design Philosophy (Why This Choice)**
 
-- **Easy to Get Started**: Provides a complete project structure and sample code to reduce initial configuration time.
-- **Modular Design**: Each component is developed independently for easy maintenance and expansion.
-- **Comprehensive Documentation**: Detailed README and API documentation for easy learning and reference.
-- **Community Support**: Completely open source. Welcome to submit issues and pull requests.
+- **Decoupling Unit is Business Boundary**: Modules such as system management, monitoring, and various business subdomains; files are further divided within subdomains; during multi-person collaboration, try to work in different subdirectories to reduce unrelated conflicts, rather than everyone modifying the same global `models/` and `services/`.
+- **Future-Oriented Splitting**: If a module needs to be separated into an independent sub-project, independent repository, or independent release in the future, **an entire directory** is a natural boundary; package by layer often requires extraction across multiple top-level directories, resulting in higher migration costs.
+- **Layering Still Exists**: The **logical layering** of Controller → Service → CRUD → Model / Schema has not disappeared; it is just **nested within business packages** rather than using "a single layered directory for the entire project" as the first dimension of division.
 
-### Directory Structure
+**Trade-off with Package by Layer**: Package by layer also has its value when "small teams emphasize overall browsing of a technical layer"; this project clearly adopts **vertical slicing by feature** under the premise of **prioritizing domain decoupling and multi-team parallel work by module**. If you are more concerned with viewing the entire table structure at a glance in a single repository, you can use IDE, database tools, and Alembic instead of changing to a global `models/` single directory for this purpose.
+
+---
+
+## 🎯 Core Advantages
+
+| Advantage | Description |
+| -------- | ----------- |
+| 🔥 **Modern Tech Stack** | Built based on cutting-edge technologies such as FastAPI + Vue3 + TypeScript |
+| ⚡ **High Performance Asynchronous** | Utilizes FastAPI's asynchronous features and Redis caching to optimize response speed |
+| 🔐 **Secure and Reliable** | JWT + OAuth2 authentication mechanism, RBAC permission control model |
+| 🧱 **Modular Design** | Highly decoupled system architecture for easy expansion and maintenance |
+| 🌐 **Full-Stack Support** | Integrated solution for Web + Mobile(H5) + Backend |
+| 🚀 **Rapid Deployment** | One-click Docker deployment, supporting quick production environment launch |
+| 📖 **Comprehensive Documentation** | Detailed development documentation and tutorials to reduce learning costs |
+| 🤖 **Intelligent Agent Framework** | Development intelligent agent based on Agno |
+
+## 🍪 Demo Environment
+
+- 💻 Web: [https://service.fastapiadmin.com/web](https://service.fastapiadmin.com/web)
+- 📱 Mobile: [https://service.fastapiadmin.com/app](https://service.fastapiadmin.com/app)
+- 👤 Login Account: `admin` Password: `123456`
+
+
+## 📦 Engineering Structure Overview
 
 ```sh
-FastCloud/
-├─ alembic/          # Database migration tool
-├─ apps/             # Backend application code
-├─ core/             # Core configuration and utilities
-├─ static/           # Static resources
-├─ test/             # Test code
-├─ utils/            # Utility functions
-├─ web/              # Frontend code
-├─ .env              # Environment variables
-├─ alembic.ini       # Alembic configuration
-├─ main.py           # Backend entry point
-├─ requirements.txt  # Backend dependencies
-├─ README.en.md      # English documentation
-└─ README.md         # Chinese documentation
+FastapiAdmin
+├─ backend               # Backend project (FastAPI + Python)
+├─ frontend              # Web frontend project (Vue3 + Element Plus)
+├─ LICENSE               # Open source license
+|─ README.en.md          # English documentation
+└─ README.md             # Chinese documentation
 ```
 
-![service screenshot](./web/src/assets/imgs/image.png)
+## 🔧 Module Display
 
-### Quick Start
+### Web
 
-- 1. Clone the project
+| Module <div style="width:60px"/> | Screenshot |
+| ----- | --------- |
+| Dashboard | ![Dashboard](backend/data/dashboard.png) |
+| Code Generation | ![Code Generation](backend/data/gencode.png) |
+| Intelligent Assistant | ![Intelligent Assistant](backend/data/ai.png) |
 
-  - git clone <https://gitee.com/fastapiadmin/FastCloud.git>
 
-- 2. Install dependencies:
+## 🚀 Quick Start
 
-  - Backend dependencies:
-    - cd FastCloud
-    - pip install -r requirements.txt
-  - Frontend dependencies:
-    - cd FastCloud/web
-    - pnpm install
+### Environment Requirements
 
-- 3. Start the project:
+| Type | Tech Stack | Version |
+|------|------------|---------|
+| Backend | Python | ≥ 3.10 (3.12 recommended) |
+| Backend | FastAPI | 0.109+ |
+| Frontend | Node.js | ≥ 20.0 |
+| Frontend | Vue3 | 3.3+ |
+| Database | SQLite | See `backend/env` configuration |
 
-  - Backend startup:
-    - Generate and apply database migrations: python3 main.py migrate
-    - Run backend service: python3 main.py run
-  - Frontend startup:
-    - cd FastCloud/web
-    - pnpm dev
+### Get the Code
 
-- 4. Access the project:
-  
-  - Frontend address: <http://127.0.0.1:5173>
-  - Backend API documentation: <http://127.0.0.1:8000/docs>
-  - Username: `admin` Password: `123456`
+```bash
+# Clone the code to local
+git clone https://gitee.com/fastapiadmin/FastCloud.git
+# Or
+git clone https://github.com/fastapiadmin/FastCloud.git
+```
 
-### Special Thanks
+### Backend Startup
 
-Thanks to the contributions and support of the following projects, which have enabled the successful completion of this project:
+#### Using uv (Recommended, consistent with `backend/pyproject.toml`)
 
-- [FastAPI Project](https://github.com/fastapi/fastapi)
-- [SqlModel Project](https://github.com/fastapi/sqlmodel)
-- [Alembic Project](https://github.com/sqlalchemy/alembic)
-- [PyJWT Project](https://github.com/jpadilla/pyjwt)
-- [Vue3 Project](https://github.com/vuejs/vue)
-- [Vite Project](https://github.com/vitejs/vite)
-- [Element Plus Project](https://github.com/element-plus/element-plus)
+```bash
+cd backend
+uv sync
+# Start
+uv run main.py run
+```
 
-### Participation and Support
+#### Using traditional pip / venv
 
-Thank you for your attention and support! If you find this project helpful, please give us a Star! Your support is our driving force. At the same time, all developers are welcome to contribute and jointly improve this project.
+```bash
+cd backend
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+python main.py run
+```
 
-## 🎨 WeChat Group
+### Frontend Startup
 
-Below are the group QR codes, which can be used for technical exchanges and discussions on various issues encountered during the project usage. We sincerely hope that everyone can work together to optimize the project, actively discuss, and support each other!
+#### Using pnpm or npm
 
-### Group QR Codes
+```bash
+cd frontend
+pnpm install
+# Start
+pnpm dev
+# Build production version
+pnpm build
+```
 
-<table>
-    <tr>
-      <td><img src="https://gitee.com/fastapiadmin/FastDocs/raw/master/docs/public/group.jpg"/></td>
-      <td><img src="https://gitee.com/fastapiadmin/FastDocs/raw/master/docs/public/wechatPay.jpg"/></td>
-    </tr>
-</table>
+## ℹ️ Help
+
+For more details, please check the [Official Documentation](https://service.fastapiadmin.com)
+
+## 👥 Contributors
+
+<a href="https://github.com/fastapiadmin/FastCloud/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=fastapiadmin/FastapiAdmin"/>
+</a>
+
+## 🙏 Special Thanks
+
+Thanks to the contributions and support of the following open-source projects:
+
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [Pydantic](https://docs.pydantic.dev/)
+- [SQLAlchemy](https://www.sqlalchemy.org/)
+- [Vue3](https://cn.vuejs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://github.com/vitejs/vite)
+- [Element Plus](https://element-plus.org/)
+
+## 🎨 Community Exchange
+
+| Group QR Code | WeChat Pay QR Code |
+| --- | --- |
+| ![Group QR Code](backend/data/group.jpg) | ![WeChat Pay QR Code](backend/data/wechatPay.jpg) |
+
+## ❤️ Support the Project
+
+If you like this project, please give it a ⭐️ Star to show your support! Thank you very much!
+
+[![Stargazers over time](https://starchart.cc/fastapiadmin/FastCloud.svg?variant=adaptive)](https://starchart.cc/fastapiadmin/FastCloud)

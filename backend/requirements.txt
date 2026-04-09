@@ -1,0 +1,29 @@
+# 与 pyproject.toml [project] dependencies 一致（生产 pip；不含 dev 组：pytest / ruff）
+aiofiles==24.1.0                         # 文件操作
+aiosqlite==0.17.0                      # sqlite 异步操作数据库
+alembic==1.15.1                        # 数据库迁移
+bcrypt==4.0.1                          # 密码加密解析,切勿升级，如果升级，请同时升级python版本
+bleach==6.3.0                          # 过滤 HTML 标签
+click==8.1.7                           # 命令行参数解析
+fastapi==0.115.2                       # fastapi 框架
+greenlet==3.1.1                        # 协程框架
+gunicorn==23.0.0                       # 协程框架
+httpx==0.27.2                          # HTTP 客户端
+itsdangerous==2.2.0                    # 用于安全处理各种数据，如密码、密钥等
+jinja2==3.1.6                          # 模板引擎
+loguru==0.7.3                          # 日志
+openpyxl==3.1.5                        # Excel
+pandas==2.2.3                          # 数据处理
+passlib==1.7.4                         # 密码加密
+pillow==11.0.0                         # 图片处理
+pydantic-settings==2.5.2              # 配置设置
+pydantic-validation-decorator==0.1.4  # 模型验证
+pyjwt==2.9.0                           # OAuth2
+python-multipart==0.0.9                # request.form() 对表单进行「解析」时安装
+rich==13.9.4                           # 终端打印美化
+tomli>=2.0.1; python_version < "3.11"  # 解析 plugin.toml（3.11+ 用标准库 tomllib）
+sqlalchemy==2.0.45                     # 数据库ORM
+typer==0.19.0                          # 命令行工具
+user-agents==2.2.0                     # 获取用户UA
+uvicorn==0.30.6                        # uvicorn web 框架
+websockets>=15.0.1,<16.0              # websocket（prefect>=3.5 需 >=15.0.1；与部署 requirements.txt 一致）

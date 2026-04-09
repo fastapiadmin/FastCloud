@@ -1,0 +1,118 @@
+[project]
+name = "backend"
+version = "2.0.0"
+description = "FastCloud后端工程"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aiofiles==24.1.0",
+    "aiosqlite==0.17.0",
+    "alembic==1.15.1",
+    "bcrypt==4.0.1",
+    "bleach==6.3.0",
+    "click==8.1.7",
+    "fastapi==0.115.2",
+    "fastapi-limiter==0.1.6",
+    "greenlet==3.1.1",
+    "gunicorn==23.0.0",
+    "httpx==0.27.2",
+    "itsdangerous==2.2.0",
+    "jinja2==3.1.6",
+    "loguru==0.7.3",
+    "openpyxl==3.1.5",
+    "pandas==2.2.3",
+    "passlib==1.7.4",
+    "pillow==11.0.0",
+    "pydantic-settings==2.5.2",
+    "pydantic-validation-decorator==0.1.4",
+    "pyjwt==2.9.0",
+    "python-multipart==0.0.9",
+    "rich==13.9.4",
+    "sqlalchemy==2.0.45",
+    "tomli>=2.0.1 ; python_full_version < '3.11'",
+    "typer==0.19.0",
+    "user-agents==2.2.0",
+    "uvicorn==0.30.6",
+    "websockets>=15.0.1,<16.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.0.2",
+    "ruff==0.14.13",          # 代码检查/格式化
+]
+
+[tool.uv]
+default-groups = ["dev"]     # 本地 uv sync 含 dev；生产 pip -r requirements.txt 不含 pytest/ruff/fakeredis
+
+[[tool.uv.index]]
+name = "tuna"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
+preview = true
+fix = true
+show-fixes = true
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+extend-include = ["*.pyw"]
+
+[tool.ruff.lint]
+select = [
+    "FAST",
+    "F",
+    "E",
+    "W",
+    "F",
+    "I",
+    "B",
+    "C4",
+    "UP",
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+    "W191",  # indentation contains tabs
+    "B904",  # Within an `except` clause
+    "B010",  # Do not call with a constant attribute value.
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/conftest.py" = ["E402"]  # 先设置 TESTING/SQLite 环境再 import 应用
+
+[tool.ruff.format]
+docstring-code-format = true
+preview = true
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
