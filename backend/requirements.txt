@@ -5,6 +5,7 @@ alembic==1.15.1                        # 数据库迁移
 bcrypt==4.0.1                          # 密码加密解析,切勿升级，如果升级，请同时升级python版本
 bleach==6.3.0                          # 过滤 HTML 标签
 click==8.1.7                           # 命令行参数解析
+cryptography==45.0.2                   # mysql8 密码加密
 fastapi==0.115.2                       # fastapi 框架
 greenlet==3.1.1                        # 协程框架
 gunicorn==23.0.0                       # 协程框架
